@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>snuscount</title>
+</head>
+
+<body>
+    <h3>User @<span id="addUserID"></span> stats:</h3>
+    <table>
+        <tr>
+            <th><!-- Nothing --></th>
+            <th>
+                Hour
+            </th>
+            <th>
+                Day
+            </th>
+            <th>
+                Week
+            </th>
+            <th>
+                Month
+            </th>
+            <th>
+                Year
+            </th>
+        </tr>
+        <tr>
+            <td> Nikotín </td>
+            <td>
+                <span id="hourNicotineSpan">0</span>
+            </td>
+            <td>
+                <span id="dayNicotineSpan">0</span>
+            </td>
+            <td>
+                <span id="weekNicotineSpan">0</span>
+            </td>
+            <td>
+                <span id="monthNicotineSpan">0</span>
+            </td>
+            <td>
+                <span id="yearNicotineSpan">0</span>
+            </td>
+        </tr>
+        <tr>
+            <td> Vrecúška </td>
+            <td>
+                <span id="hourSnusCount">0</span>
+            </td>
+            <td>
+                <span id="daySnusCount">0</span>
+            </td>
+            <td>
+                <span id="weekSnusCount">0</span>
+            </td>
+            <td>
+                <span id="monthSnusCount">0</span>
+            </td>
+            <td>
+                <span id="yearSnusCount">0</span>
+            </td>
+        </tr>
+    </table>
+</body>
+
+<style>
+    body {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid;
+        width: 0%;
+        border-collapse: collapse;
+        border-color: rgb(0, 0, 0);
+        border-width: 3px;
+    }
+
+    td {
+        min-width: 20%;
+        max-width: 25%;
+        height: 10%;
+    }
+</style>
+<script>
+    fetch("http://localhost:3000/api/users")  // API endpoint backendu
+    .then(response => response.json())
+    .then(data => document.getElementById("hourNicotineSpan").innerText = data)  // Spracovanie dát
+    .catch(error => console.error("Error fetching users:", error));
+</script>
+
+</html>
